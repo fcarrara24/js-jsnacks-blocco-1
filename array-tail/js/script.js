@@ -1,5 +1,8 @@
 const btn = document.querySelector('button');
 const inputEl = document.getElementById('data');
+
+const stampa = document.getElementById('stampa');
+
 const resultEl = document.querySelector('.alert');
 
 function randInt(min, max) {
@@ -8,22 +11,27 @@ function randInt(min, max) {
 
 btn.addEventListener('click', function () {
     //inputEl.
-    numberprint = parseInt(inputEl.value);
-    let numExtract;
-    let print = '';
-    if (!isNaN(numberprint)) {
+    let array = [];
+    let arrLen = parseInt(inputEl.value);
+    let stamp = parseInt(stampa.value);
+    if (!isNaN(stamp) && !isNaN(arrLen) && arrLen > stamp) {
 
-        for (let i = 0; i < numberprint; i++) {
-            numExtract = randInt(0, 100);
-            print = print + " " + String(numExtract);
+        for (i = 0; i < arrLen; i++) {
+            array.push(randInt(1, 100));
         }
+        let string = ''
+        for (let i = 0; i < stamp; i++) {
+            string = string + " " + array[arrLen - 1 - i];
+        }
+        resultEl.classList.add('bg-success');
+
+        resultEl.innerHTML = string;
+
     } else {
-        for (let i = 0; i < 5; i++) {
-            numExtract = randInt(0, 100);
-            print = print + " " + String(numExtract);
-        }
+        resultEl.classList.add('bg-danger');
+        resultEl.innerHTML = `qualcosa è andato storto`;
     }
-    resultEl.innerHTML = print;
+
 
 
 
