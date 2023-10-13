@@ -14,7 +14,7 @@ btn.addEventListener('click', function () {
     let array = [];
     let arrLen = parseInt(inputEl.value);
     let stamp = parseInt(stampa.value);
-    if (!isNaN(stamp) && !isNaN(arrLen) && arrLen > stamp) {
+    if (!isNaN(stamp) && !isNaN(arrLen) && arrLen >= stamp) {
 
         for (i = 0; i < arrLen; i++) {
             array.push(randInt(1, 100));
@@ -23,11 +23,12 @@ btn.addEventListener('click', function () {
         for (let i = 0; i < stamp; i++) {
             string = string + " " + array[arrLen - 1 - i];
         }
+        resultEl.classList.remove('bg-danger');
         resultEl.classList.add('bg-success');
-
         resultEl.innerHTML = string;
 
     } else {
+        resultEl.classList.remove('bg-success');
         resultEl.classList.add('bg-danger');
         resultEl.innerHTML = `qualcosa è andato storto`;
     }

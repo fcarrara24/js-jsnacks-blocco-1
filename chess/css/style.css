@@ -1,0 +1,37 @@
+.board{
+    width: 800px;
+    height: 800px;
+    background-color: red;
+}
+
+.line{
+    width: 800px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.square{
+    height: 100px;
+    width: 100px;
+    
+}
+
+.dark{
+    background-color: #779556;
+}
+
+.light{
+    background-color: #e9edcc;
+}
+
+.activated{
+    border: 3px solid black;
+}
+
+img{
+    height: 90%;
+    width: 90%;
+    
+}
